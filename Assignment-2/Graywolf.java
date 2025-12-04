@@ -6,42 +6,47 @@
 * @since   2025-12-01
 */
 
-class Graywolf extends to Animalclass {
+class Graywolf extends Animalclass {
    /**
        * @param name
        * @param colour
        * @param maxSpeed
 */
-   public Graywolf (String name, String colour, double maxSpeed) {
+    @Override
+    public Graywolf (String name, String colour, double maxSpeed) {
        super (name, colour, maxSpeed);
    }
 
-   // public method to accelerate
-   public void accelerate(double acceleratePower,
-       double accelerateTime) {
-       int newSpeed = getCurrentSpeed()
-       += (acceleratePower * accelerateTime * 8);
+    // public method to accelerate
+    @Override
+    public void accelerate(double acceleratePower, double accelerateTime) {
+       double newSpeed = getCurrentSpeed() + (acceleratePower * accelerateTime * 8);
        setSpeed(newSpeed);
    }
 
-   // public method to break
-   public void brakeGraywolf(double brakePower,
-       double brakeTime) {
-       int newSpeed = getCurrentSpeed()
-       -= (brakePower * brakeTime * 6);
-       setSpeed(newSpeed);
+    // public method to break
+    @Override
+    public void brake(double brakePower, double brakeTime) {
+        double newSpeed = getCurrentSpeed() - (brakePower * brakeTime * 6);
+        if (newSpeed < 0) {
+        newSpeed = 0;
+        }
+    setSpeed(newSpeed);
+   }
+    // public method to provide ability
+    @Override
+    public String provideAbility() {
+       System.out.println("-> clone time and you will not know who is the real me! snow-fox hallucinate for 15 seconds!");
+       return SpecialAbility;
    }
 
-   public String provideAbility {
-       return SpecialAbility; + "-> clone time and you will not know who is the real me! snow-fox hallucinate for 15 seconds!";
-   }
-
-   // public method to return status as a string
-   public void status() {
-       System.out.println("-> Colour: " + getcolour);
-       System.out.println("-> Name: " + getname);
-       System.out.println("-> Speed: " + getCurrentSpeed);
-       System.out.println("-> Max swpeed: " + getMaxSpeed + "km/h");
-       System.out.println("-> Special ability: " + getSpecialAbility);
+    // public method to return status as a string
+    @Override
+    public void status() {
+       System.out.println("-> Colour: " + getColour());
+       System.out.println("-> Name: " + getName());
+       System.out.println("-> Speed: " + getCurrentSpeed());
+       System.out.println("-> Max swpeed: " + getMaxSpeed() + "km/h");
+       System.out.println("-> Special ability: " + getSpecialAbility());
    }
 }
