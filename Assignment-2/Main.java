@@ -50,7 +50,7 @@ final class Main {
 
        final String statusString = "Status:";
        final String newSpeedString = "New speed:";
-       final String onceUponATimeString = "Once upon a time, there was a hare and tortise! They wanting to race to see who is the fastest!";
+       final String onceUponATimeString = "Once upon a time, there was a hare and tortise!They wanting to race to see who is the fastest!";
        final String chapter1String = "Chapter 1!";
        final String chapter2String = "Chapter 2!";
        final String chapter3String = "Chapter 3! Tortoise use super ability";
@@ -73,7 +73,8 @@ final class Main {
        final int thirtyFiveConst = 35;
 
    // Title of the story 
-   System.out.println("\n ----------------- 🐾 🆃 🅷 🅴  🅰 🆆 🅴 🆂 🅾 🅼 🅴  🅰 🅽 🅸 🅼 🅰 🅻  🆁 🅰 🅲 🅴  🆂 🆃 🅾 🆁 🆈 🐾------------------------ \n");
+   System.out.println("\n -------- 🐾 🆃 🅷 🅴  🅰 🆆 🅴 🆂 🅾 🅼 🅴  🅰 🅽 🅸 🅼 🅰 🅻 -------\n"); 
+   System.out.println("\n ----------------- 🆁 🅰 🅲 🅴  🆂 🆃 🅾 🆁 🆈 🐾 -------------------\n");
   
         // Begainning of the story.
         System.out.println(chapter1String); 
@@ -133,7 +134,8 @@ final class Main {
 
    // Finale of the story
        System.out.println(chapter6String);
-       System.out.println("clone time! You won't know who is the real me! snow-fox hallucinate for 15 seconds!");
+       System.out.println("clone time! You won't know who the real me!"); 
+       System.out.println("snow-fox hallucinate for 15 seconds!");
        System.out.println("Accelerating, 10 of power for 35 sec.");
        grayWolf.accelerate(tenConst, thirtyFiveConst);
        System.out.println(newSpeedString + grayWolf.getCurrentSpeed());
