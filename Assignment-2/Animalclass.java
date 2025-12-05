@@ -28,7 +28,7 @@ public abstract class Animalclass {
        this.colour = colour;
    }
 
-   // Getter and setter for name
+  // Getter and setter for name
    public String getName() {
        return name;
    }
@@ -37,12 +37,15 @@ public abstract class Animalclass {
        this.name = name;
    }
 
-   // Getter and setter for current speed
-   public int getCurrentSpeed() {
-       return currentSpeed;
-   }
+    // Getter and Setter for current speed (used in Hare class)
+    public int getCurrentSpeed() { 
+        return this.currentSpeed; 
+        }
+    public void setCurrentSpeed(int speed) { 
+        this.currentSpeed = speed; 
+        }
 
-   // Getter for read-only max speed
+  // Getter for read-only max speed
    public int getMaxSpeed() {
        return maxSpeed;
    }
@@ -51,30 +54,17 @@ public abstract class Animalclass {
        if (newSpeed > maxSpeed) {
            newSpeed = maxSpeed;
 
-
            if (newSpeed < 0);
            newSpeed = 0;
-           currentSpeed = newSpeed;
+           this.currentSpeed = newSpeed;
        }
    }
-
-   // public method to accelerate
-   public void accelerate(double acceleratePower, double accelerateTime) {
-       // Assume acceleratePower * accelerateTime gives the increase in speed
-       this.currentSpeed += (acceleratePower * accelerateTime);
-       if (this.currentSpeed > this.maxSpeed) {
-           this.currentSpeed = this.maxSpeed;
-       }
-   }
+       
+    // public method to accelerate
+    public abstract void accelerate(int acceleratePower, int accelerateTime);
 
    // public method to break
-   public void brake(double brakePower, double brakeTime) {
-       // Assume breakPower * breakTime gives the decrease in speed
-       this.currentSpeed -= (brakePower * brakeTime);
-       if (this.currentSpeed < 0) {
-           this.currentSpeed = 0;  // speed cannot be negative
-       }
-   }
+   public abstract void brake(int brakePower, int brakeTime);
 
    // public method to special ability
    public abstract String getSpecialAbility();
@@ -87,4 +77,3 @@ public abstract class Animalclass {
        System.out.println("-> MaxSpeed: " + maxSpeed + "km/h");
    }
 }
-

@@ -6,48 +6,51 @@
 * @since   2025-12-01
 */
 
-class Hare extends Animalclass {
-   /**
-       * @param name
-       * @param colour
-       * @param maxSpeed
-*/
-    @Override
-    public Hare (String name, String colour, double maxSpeed) {
-       super (name, colour, maxSpeed);
+public class Hare extends Animalclass {
+    private String color;
+    private String name;
+    private int maxSpeed;
+
+    // --- Constructor starts here ---
+   public Hare (String name, String color, int maxSpeed) { 
+       super(name, color, maxSpeed);
+
+       this.name = name;
+       this.color = color;
+       this.maxSpeed = maxSpeed;
+   } 
+
+   @Override
+   // public method to accelerate
+   public void accelerate(int acceleratePower, int accelerateTime) {
+       int newSpeed = super.getCurrentSpeed() + (acceleratePower * accelerateTime * 8);
+       super.setCurrentSpeed(newSpeed);
    }
 
-    // public method to accelerate
-    @Override
-    public void accelerate(double acceleratePower, double accelerateTime) {
-       double newSpeed = getCurrentSpeed() + (acceleratePower * accelerateTime * 8);
-       setSpeed(newSpeed);
+   // public method to break
+   @Override
+   public void brake(int brakePower, int brakeTime) {
+       int newSpeed = super.getCurrentSpeed() - (brakePower * brakeTime * 6);
+       if (newSpeed < 0) {
+           newSpeed = 0;
+       }
+   super.setCurrentSpeed(newSpeed);
    }
 
-    // public method to break
-    @Override
-    public void brake(double brakePower, double brakeTime) {
-        double newSpeed = getCurrentSpeed() - (brakePower * brakeTime * 6);
-        if (newSpeed < 0) {
-        newSpeed = 0;
-        }
-    setSpeed(newSpeed);
+   // public method to provide ability
+   @Override
+   public String getSpecialAbility() {
+       String Output = ("-> Fur-ball attack! tortoise slow down 10 seconds!");
+       return Output;
    }
 
-    // public method to provide ability
-    @Override
-    public String provideAbility() {
-        System.out.println("-> Fur-ball attack! tortoise slow down 10 seconds!");
-        return SpecialAbility
-   }
-
-    // public method to return status as a string
-    @Override
-    public void status() {
-       System.out.println("-> Colour: " + getColour());
-       System.out.println("-> Name: " + getName());
-       System.out.println("-> Speed: " + getCurrentSpeed());
-       System.out.println("-> Max swpeed: " + getMaxSpeed() + "km/h");
-       System.out.println("-> Special ability: " + getSpecialAbility());
+   // public method to return status as a string
+   @Override
+   public void status() {
+        // Access the local 'this.' variables directly since 'getColor()' doesn't exist
+        System.out.println("-> Name: " + this.name); 
+        System.out.println("-> Color: " + this.color); 
+        System.out.println("-> Max Speed: " + this.maxSpeed); 
+        System.out.println("-> Special ability: " + this.getSpecialAbility());
    }
 }
