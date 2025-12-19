@@ -7,69 +7,119 @@
 */
 
 public abstract class Animalclass {
+   /**
+    * add a variable for name as a string.
+   */
    private String name;
-   private String colour;
-   private int currentSpeed;
-   private int maxSpeed;
 
-   public Animalclass(String name, String colour, int maxSpeed) {
-       this.colour = colour;
-       this.name = name;
+   /**
+    * add a variable for color as a string.
+   */
+   private String colour;
+
+   /**
+    * add a variable for currentSpeed as an int.
+   */
+   private int currentSpeed;
+
+   /**
+    * add a variable for maxSpeed as an final int.
+   */
+   private final int maxSpeed;
+
+       /**
+    * @param startingName
+    * @param rareColor
+    * @param showMaxSpeed
+    */
+   public Animalclass(final String startingName, final String rareColor,
+       final int showMaxSpeed) {
+       this.colour = rareColor;
+       this.name = startingName;
        this.currentSpeed = 0;
-       this.maxSpeed = maxSpeed;
+       this.maxSpeed = showMaxSpeed;
    }
 
-// Getter and setter for colour
+   /**
+       * Getter for colour.
+       * @return colour
+   */
    public String getColour() {
        return colour;
    }
 
-   public void setColour(String colour) {
-       this.colour = colour;
+   /**
+       * Setter for colour.
+       * @param rareColor
+   */
+   public void setColour(final String rareColor) {
+       this.colour = rareColor;
    }
 
-  // Getter and setter for name
+   /**
+       * Getter for name.
+       * @return name
+   */
    public String getName() {
        return name;
    }
 
-   public void setname(String name) {
-       this.name = name;
+   /**
+       * Setter for name.
+       * @param startingName
+   */
+   public void setname(final String startingName) {
+       this.name = startingName;
    }
 
-    // Getter and Setter for current speed (used in Hare class)
-    public int getCurrentSpeed() { 
-        return this.currentSpeed; 
-        }
-    public void setCurrentSpeed(int speed) { 
-        this.currentSpeed = speed; 
-        }
+   /**
+       * Getter for current speed.
+       * @return currentSpeed
+   */
+   public int getCurrentSpeed() {
+       return this.currentSpeed;
+       }
 
-  // Getter for read-only max speed
+   /**
+       *Setter for current speed.
+       * @param speed
+   */
+   public void setCurrentSpeed(final int speed) {
+       this.currentSpeed = maxSpeed;
+       }
+
+   /**
+       * Getter for read-only max speed.
+       * @return maxSpeed
+    */
    public int getMaxSpeed() {
        return maxSpeed;
    }
 
-   public void newSpeed(int newSpeed) {
-       if (newSpeed > maxSpeed) {
-           newSpeed = maxSpeed;
+   /**
+    * public method to accelerate.
+    * @param acceleratePower
+    * @param accelerateTime
+   */
+   public abstract void accelerate(int acceleratePower,
+       int accelerateTime);
 
-           if (newSpeed < 0);
-           newSpeed = 0;
-           this.currentSpeed = newSpeed;
-       }
-   }
-       
-    // public method to accelerate
-    public abstract void accelerate(int acceleratePower, int accelerateTime);
-
-   // public method to break
+   /**
+    * public method to break.
+    * @param brakePower
+    * @param brakeTime
+   */
    public abstract void brake(int brakePower, int brakeTime);
 
-   // public method to special ability
+   /**
+    * public method to SpecialAbility.
+    * @return SpecialAbility
+   */
    public abstract String getSpecialAbility();
 
-   // public method to return status as a string
+   /**
+    *  public method to return status as a string.
+   */
    public void status() {
        System.out.println("-> Colour: " + colour);
        System.out.println("-> Animal name: " + name);

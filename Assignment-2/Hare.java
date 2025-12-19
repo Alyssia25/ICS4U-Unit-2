@@ -7,50 +7,89 @@
 */
 
 public class Hare extends Animalclass {
-    private String color;
-    private String name;
-    private int maxSpeed;
+   /**
+    * add a variable for color as a string.
+    */
+   private String color;
 
-    // --- Constructor starts here ---
-   public Hare (String name, String color, int maxSpeed) { 
-       super(name, color, maxSpeed);
+   /**
+    * add a variable for name as a string.
+    */
+   private String name;
 
-       this.name = name;
-       this.color = color;
-       this.maxSpeed = maxSpeed;
-   } 
+   /**
+    * add variable for maxSpeed as int.
+    */
+   private int maxSpeed;
 
-   @Override
-   // public method to accelerate
-   public void accelerate(int acceleratePower, int accelerateTime) {
-       int newSpeed = super.getCurrentSpeed() + (acceleratePower * accelerateTime * 8);
-       super.setCurrentSpeed(newSpeed);
+       /**
+    * add a variable for magic number as int.
+   */
+   private final int eight = 8;
+
+       /**
+    * add a variable for magic number as int.
+   */
+   private final int six = 6;
+
+
+   /**
+    * @param startingName
+    * @param rareColor
+    * @param showMaxSpeed
+    */
+   public Hare(final String startingName,
+       final String rareColor, final int showMaxSpeed) {
+       super(startingName, rareColor, showMaxSpeed);
+
+       this.name = startingName;
+       this.color = rareColor;
+       this.maxSpeed = showMaxSpeed;
    }
 
-   // public method to break
-   @Override
-   public void brake(int brakePower, int brakeTime) {
-       int newSpeed = super.getCurrentSpeed() - (brakePower * brakeTime * 6);
-       if (newSpeed < 0) {
-           newSpeed = 0;
+   /**
+    * public method to accelerate.
+    * @param acceleratePower
+    * @param accelerateTime
+    */
+   public void accelerate(final int acceleratePower,
+       final int accelerateTime) {
+       int accelerate = this.getCurrentSpeed()
+      + (acceleratePower * accelerateTime * eight);
+       this.setCurrentSpeed(accelerate);
+   }
+
+   /**
+    * public method to break.
+    * @param brakePower
+    * @param brakeTime
+    */
+   public void brake(final int brakePower,
+       final int brakeTime) {
+       int brake = this.getCurrentSpeed()
+      - (brakePower * brakeTime * six);
+       if (brake < 0) {
+           brake = 0;
        }
-   super.setCurrentSpeed(newSpeed);
+   this.setCurrentSpeed(brake);
    }
 
-   // public method to provide ability
-   @Override
+   /**
+    *  public method to provide ability.
+    * @return Output
+    */
    public String getSpecialAbility() {
        String Output = ("-> Fur-ball attack! tortoise slow down 10 seconds!");
        return Output;
    }
 
-   // public method to return status as a string
-   @Override
+   /**
+    *  public method to return status as a string.
+    */
    public void status() {
-        // Access the local 'this.' variables directly since 'getColor()' doesn't exist
-        System.out.println("-> Name: " + this.name); 
-        System.out.println("-> Color: " + this.color); 
-        System.out.println("-> Max Speed: " + this.maxSpeed); 
-        System.out.println("-> Special ability: " + this.getSpecialAbility());
+       System.out.println("-> Name: " + this.name);
+       System.out.println("-> Color: " + this.color);
+       System.out.println("-> Max Speed: " + this.maxSpeed + "km/h");
+       System.out.println("-> Special ability: " + this.getSpecialAbility());
    }
 }

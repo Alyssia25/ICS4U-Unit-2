@@ -7,49 +7,90 @@
 */
 
 public class Snowfox extends Animalclass {
-    private String color;
-    private String name;
-    private int maxSpeed;
-    
-    public Snowfox (String name, String color, int maxSpeed) { 
-       super(name, color, maxSpeed); 
+   /**
+    * add a variable for color as a string.
+    */
+   private String color;
 
-       this.name = name;
-       this.color = color;
-       this.maxSpeed = maxSpeed;
-   } 
+   /**
+    * add a variable for name as a string.
+    */
+   private String name;
 
-    // public method to accelerate
-    @Override
-    public void accelerate(int acceleratePower, int accelerateTime) {
-       int newSpeed = super.getCurrentSpeed() + (acceleratePower * accelerateTime * 8);
-       super.setCurrentSpeed(newSpeed);
+   /**
+    * add a variable for maxSpeed as int.
+    */
+   private int maxSpeed;
+
+       /**
+    * add a variable for magic number as int.
+   */
+   private final int eight = 8;
+
+       /**
+    * add a variable for magic number as int.
+   */
+   private final int six = 6;
+
+
+   /**
+    * @param startingName
+    * @param rareColor
+    * @param showMaxSpeed
+    */
+   public Snowfox(final String startingName,
+       final String rareColor, final int showMaxSpeed) {
+       super(startingName, rareColor, showMaxSpeed);
+
+       this.name = startingName;
+       this.color = rareColor;
+       this.maxSpeed = showMaxSpeed;
    }
 
-    // public method to break
-    @Override
-    public void brake(int brakePower, int brakeTime) {
-       int newSpeed = super.getCurrentSpeed() - (brakePower * brakeTime * 6);
-       if (newSpeed < 0) {
-           newSpeed = 0;
+   /**
+    * public method to accelerate.
+    * @param acceleratePower
+    * @param accelerateTime
+    */
+       public void accelerate(final int acceleratePower,
+       final int accelerateTime) {
+       int accelerate = super.getCurrentSpeed()
+      + (acceleratePower * accelerateTime * eight);
+       super.setCurrentSpeed(accelerate);
+   }
+
+   /**
+    * public method to break.
+    * @param brakePower
+    * @param brakeTime
+    */
+   public void brake(final int brakePower,
+       final int brakeTime) {
+       int brake = super.getCurrentSpeed()
+      - (brakePower * brakeTime * six);
+       if (brake < 0) {
+           brake = 0;
        }
-   super.setCurrentSpeed(newSpeed);
+   super.setCurrentSpeed(brake);
    }
 
-   // public method to provide ability
-   @Override
+
+   /**
+    *  public method to provide ability.
+    * @return Output
+    */
    public String getSpecialAbility() {
        String Output = ("-> Ice attack! gray-wolf freeze for 25 seconds!");
        return Output;
    }
 
-    // public method to return status as a string
-    @Override
-    public void status() {
-        // Access the local 'this.' variables directly since 'getColor()' doesn't exist
-        System.out.println("-> Name: " + this.name); 
-        System.out.println("-> Color: " + this.color); 
-        System.out.println("-> Max Speed: " + this.maxSpeed); 
-        System.out.println("-> Special ability: " + this.getSpecialAbility());
+   /**
+    *  public method to return status as a string.
+    */
+   public void status() {
+       System.out.println("-> Name: " + this.name);
+       System.out.println("-> Color: " + this.color);
+       System.out.println("-> Max Speed: " + this.maxSpeed + "km/h");
+       System.out.println("-> Special ability: " + this.getSpecialAbility());
    }
 }
